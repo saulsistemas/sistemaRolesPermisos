@@ -255,9 +255,10 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'      => 'Usuarios',
+            'route'     => 'users.index',
+            'icon'      => 'fas fa-fw fa-user',
+            'active'    => ['users*'],
         ],
         [
             'text' => 'change_password',
