@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoriaController;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('', [HomeController::class,'index'])->name('home');
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('home', [HomeController::class,'index'])->name('home');
+Route::resource('categorias',CategoriaController::class)->names('categorias');
+
+
+
+
+#Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+#    return view('dashboard');
+#})->name('dashboard');
