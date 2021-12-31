@@ -61,7 +61,7 @@
                         <td>{{$role->guard_name}}</td>
                         <td>{{$role->created_at}}</td>
                         <td class="btn-group">
-                            <a class="btn btn-primary" href="{{ route('roles.show', $role) }}">+</a>
+                            
                             @can('roles.edit')
                                 <a class="btn btn-warning" href="{{ route('roles.edit', $role) }}">Editar</a>
                             @endcan
