@@ -261,9 +261,10 @@ return [
             'active'    => ['users*'],
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'      => 'Roles',
+            'route'     => 'roles.index',
+            'icon'      => 'fas fa-users fa-fw',
+            'active'    => ['roles*'],
         ],
         [
             'text'    => 'multilevel',
