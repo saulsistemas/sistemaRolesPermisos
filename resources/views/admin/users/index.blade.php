@@ -52,9 +52,9 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->created_at}}</td>
                         <td class="btn-group">
-                            {{-- @can('users.edit') --}}
+                            @can('users.edit')
                                 <a class="btn btn-warning" href="{{ route('users.edit', $user) }}">Editar</a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
                     </tr>
                 @endforeach

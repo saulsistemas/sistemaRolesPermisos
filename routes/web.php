@@ -20,10 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('home', [HomeController::class,'index'])->name('home');
+Route::get('home', [HomeController::class,'index'])->middleware('can:home.index')->name('home');
 Route::resource('categorias',CategoriaController::class)->names('categorias');
 Route::resource('users',UserController::class)->only(['index','edit','update'])->names('users');
-Route::resource('roles',RoleController::class)->names('roles');
+Route::resource('roles',RoleController::class)->except('show')->names('roles');
 
 
 

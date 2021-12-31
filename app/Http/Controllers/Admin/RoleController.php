@@ -9,6 +9,13 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:categorias.index')->only('index');
+        $this->middleware('can:categorias.create')->only('create','store');
+        $this->middleware('can:categorias.edit')->only('edit','update');
+        $this->middleware('can:categorias.destroy')->only('destroy');
+    }    
     public function index(Request $request)
     {
         $busqueda = $request->busqueda;
@@ -38,13 +45,6 @@ class RoleController extends Controller
         return redirect()->route('roles.edit',$role)->with('info','Se creo Rol correctament');
       
     }
-
-
-    public function show($id)
-    {
-        //
-    }
-
 
     public function edit(Role $role)
     {
