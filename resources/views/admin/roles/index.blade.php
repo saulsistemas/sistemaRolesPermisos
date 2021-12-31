@@ -41,9 +41,9 @@
             </form>
         </div> 
         <div>
-            {{-- @can('roles.create') --}}
+            @can('roles.create')
                 <a href="{{ route('roles.create') }}" class="btn btn-primary">Agregar</a>
-            {{-- @endcan --}}
+            @endcan
         </div> 
         <table class="table table-striped">
             <thead>
@@ -62,16 +62,16 @@
                         <td>{{$role->created_at}}</td>
                         <td class="btn-group">
                             <a class="btn btn-primary" href="{{ route('roles.show', $role) }}">+</a>
-                            {{-- @can('roles.edit') --}}
+                            @can('roles.edit')
                                 <a class="btn btn-warning" href="{{ route('roles.edit', $role) }}">Editar</a>
-                            {{-- @endcan --}}
-                            {{-- @can('roles.destroy') --}}
+                            @endcan
+                            @can('roles.destroy')
                                 <form action="{{ route('roles.destroy', $role) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <input type="submit" value="Eliminar" class="btn btn-danger">
                                 </form>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
                     </tr>
                 @endforeach

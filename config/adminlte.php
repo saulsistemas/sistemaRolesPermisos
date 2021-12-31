@@ -259,12 +259,14 @@ return [
             'route'     => 'users.index',
             'icon'      => 'fas fa-fw fa-user',
             'active'    => ['users*'],
+            'can'       => 'users.index',
         ],
         [
             'text'      => 'Roles',
             'route'     => 'roles.index',
             'icon'      => 'fas fa-users fa-fw',
             'active'    => ['roles*'],
+            'can'       => 'roles.index',
         ],
         [
             'text'    => 'multilevel',
@@ -275,6 +277,7 @@ return [
                     'route'     => 'categorias.index',
                     'icon'      => 'fas fa-fw fa-file',
                     'active'    => ['categorias*'],
+                    'can'       => 'categorias.index',
                 ],
                 [
                     'text' => 'level_one',

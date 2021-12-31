@@ -36,9 +36,9 @@
             </form>
         </div> 
         <div>
-            {{-- @can('categorias.create') --}}
+            @can('categorias.create')
                 <a href="{{ route('categorias.create') }}" class="btn btn-primary">Agregar</a>
-            {{-- @endcan --}}
+            @endcan
         </div> 
         <table class="table table-striped">
             <thead>
@@ -57,16 +57,16 @@
                         <td>{{$categoria->created_at}}</td>
                         <td class="btn-group">
                             <a class="btn btn-primary" href="{{ route('categorias.show', $categoria) }}">+</a>
-                            {{-- @can('categorias.edit') --}}
+                            @can('categorias.edit')
                                 <a class="btn btn-warning" href="{{ route('categorias.edit', $categoria) }}">Editar</a>
-                            {{-- @endcan --}}
-                            {{-- @can('categorias.destroy') --}}
+                            @endcan
+                            @can('categorias.destroy')
                                 <form action="{{ route('categorias.destroy', $categoria) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <input type="submit" value="Eliminar" class="btn btn-danger">
                                 </form>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
                     </tr>
                 @endforeach
