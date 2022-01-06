@@ -264,12 +264,19 @@ return [
         [
             'text'      => 'Roles',
             'route'     => 'roles.index',
-            'icon'      => 'fas fa-users fa-fw',
+            'icon'      => 'fas fa-user-lock',
             'active'    => ['roles*'],
             'can'       => 'roles.index',
         ],
         [
-            'text'    => 'multilevel',
+            'text'      => 'Clientes',
+            'route'     => 'clientes.index',
+            'icon'      => 'fas fa-users fa-fw',
+            'active'    => ['clientes*'],
+            'can'       => 'clientes.index',
+        ],
+        [
+            'text'    => 'Producto',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
