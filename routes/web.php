@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoriaController;
 use App\Http\Controllers\Admin\ClienteController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\ProductoController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ Route::get('/', function () {
 Route::get('home', [HomeController::class,'index'])->middleware('can:home.index')->name('home');
 Route::resource('categorias',CategoriaController::class)->names('categorias');
 Route::resource('clientes',ClienteController::class)->names('clientes');
+Route::resource('productos',ProductoController::class)->names('productos');
 Route::resource('users',UserController::class)->only(['index','edit','update'])->names('users');
 Route::resource('roles',RoleController::class)->except('show')->names('roles');
 

@@ -10,4 +10,8 @@ class Categoria extends Model
     use HasFactory;
     #asignacion masiva
     protected $fillable=['codigo','nombre','estado'];
+    #relacion 1 a muchos (TIENE MUCHOS PRODUCTOS)
+    public function productos(){
+        return $this->hasMany(Producto::class);
+    }
 }

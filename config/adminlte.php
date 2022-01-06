@@ -277,18 +277,21 @@ return [
         ],
         [
             'text'    => 'Producto',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fab fa-product-hunt',
             'submenu' => [
                 [
-                    'text'      => 'categorias',
+                    'text'      => 'Productos',
+                    'route'     => 'productos.index',
+                    'icon'      => 'fas fa-box-open',
+                    'active'    => ['productos*'],
+                    'can'       => 'productos.index',
+                ],
+                [
+                    'text'      => 'Categorias',
                     'route'     => 'categorias.index',
                     'icon'      => 'fas fa-fw fa-file',
                     'active'    => ['categorias*'],
                     'can'       => 'categorias.index',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
                 ],
             ],
         ],
