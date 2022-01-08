@@ -276,6 +276,13 @@ return [
             'can'       => 'clientes.index',
         ],
         [
+            'text'      => 'Ventas',
+            'route'     => 'ventas.index',
+            'icon'      => 'fas fa-cart-arrow-down',
+            'active'    => ['ventas*'],
+            'can'       => 'ventas.index',
+        ],
+        [
             'text'    => 'Producto',
             'icon'    => 'fab fa-product-hunt',
             'submenu' => [

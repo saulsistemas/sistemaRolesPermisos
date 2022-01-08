@@ -9,4 +9,9 @@ class Cliente extends Model
 {
     use HasFactory;
     protected $fillable=['codigo','nombre','direccion','telefono','estado'];
+    #relacion 1 a muchos (TIENE MUCHAS VENTAS)
+    public function ventas(){
+        return $this->hasMany(Venta::class);
+    }
+    
 }

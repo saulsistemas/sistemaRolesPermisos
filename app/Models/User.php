@@ -60,4 +60,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    #relacion 1 a muchos (TIENE MUCHAS VENTAS)
+    public function ventas(){
+        return $this->hasMany(Venta::class);
+    }
 }

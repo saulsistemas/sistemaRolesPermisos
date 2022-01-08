@@ -13,4 +13,8 @@ class Producto extends Model
     public function categoria(){
         return $this->belongsTo(Categoria::class);
     }
+    #relacion 1 a muchos (TIENE MUCHOS DETALLES)
+    public function detalle_ventas(){
+        return $this->hasMany(DetalleVenta::class);
+    }
 }
