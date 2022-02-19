@@ -15,7 +15,6 @@ class ProductoController extends Controller
     {
         $this->middleware('can:productos.index');
         $this->middleware('can:productos.create')->only('create','store');
-        $this->middleware('can:productos.show');
         $this->middleware('can:productos.edit')->only('edit','update');
         $this->middleware('can:productos.destroy');
     }
@@ -34,7 +33,7 @@ class ProductoController extends Controller
     public function create()
     {
         #$categorias = Categoria::all();
-        $categorias = Categoria::where('estado','0')->pluck('nombre','id');
+        $categorias = Categoria::where('estado','1')->pluck('nombre','id');
         $estados = ['Activo','Desactivo'];
         return view('admin.productos.create',compact('estados','categorias'));
     }
@@ -61,7 +60,7 @@ class ProductoController extends Controller
     
     public function edit(Producto $producto)
     {
-        $categorias = Categoria::where('estado','0')->pluck('nombre','id');
+        $categorias = Categoria::where('estado','1')->pluck('nombre','id');
         $estados = ['Activo','Desactivo'];
         return view('admin.productos.edit',compact('producto','estados','categorias'));
     }

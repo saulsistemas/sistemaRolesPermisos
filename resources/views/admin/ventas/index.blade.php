@@ -45,7 +45,9 @@
             <thead>
                 <td>ID</td>
                 <td>FECHA</td>
-                <td>TOTAL</td>
+                <td>ITEMS</td>
+                <td>CLIENTE</td>
+                <td>SUBTOTAL</td>
                 <td>ESTADO</td>
                 <td>CREADO</td>
                 <td>OPCIONES</td>
@@ -55,11 +57,13 @@
                     <tr>
                         <td>{{$venta->id}}</td>
                         <td>{{$venta->fecha_venta}}</td>
-                        <td>{{$venta->total}}</td>
+                        <td>{{$venta->detalle_ventas->count()}}</td>
+                        <td>{{$venta->cliente->nombre}}</td>
+                        <td>{{$venta->detalle_ventas->sum('total')}}</td>
                         <td>@if($venta->estado=='new')<p class="badge bg-success">Nuevo</p> @else <p class="badge bg-warning">Enviado</p> @endif</td>
                         <td>{{$venta->created_at}}</td>
                         <td class="btn-group">
-                            <a class="btn btn-primary" href="{{ route('ventas.show', $venta) }}"><i class="fas fa-list-alt"></i></a>
+                            <a class="btn btn-primary" href="{{ route('detalle_ventas.create', $venta) }}"><i class="fas fa-list-alt"></i></a>
                             @can('ventas.edit')
                                 <a class="btn btn-warning" href="{{ route('ventas.edit', $venta) }}"><i class="fas fa-edit"></i></a>
                             @endcan

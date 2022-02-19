@@ -30,6 +30,7 @@ class VentaRequest extends FormRequest
     {
         $rules = [
             'fecha_venta'=>'required',
+            'igv'=>'required',
         ];
         return $rules;
     }

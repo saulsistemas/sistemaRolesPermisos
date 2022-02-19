@@ -12,7 +12,6 @@ class CategoriaController extends Controller
     {
         $this->middleware('can:categorias.index');
         $this->middleware('can:categorias.create')->only('create','store');
-        $this->middleware('can:categorias.show');
         $this->middleware('can:categorias.edit')->only('edit','update');
         $this->middleware('can:categorias.destroy');
     }

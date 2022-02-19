@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('home', [HomeController::class,'index'])->middleware('can:home.index')->name('home');
+Route::get('home', [HomeController::class,'index'])->middleware('can:home')->name('home');
 Route::resource('categorias',CategoriaController::class)->names('categorias');
 Route::resource('clientes',ClienteController::class)->names('clientes');
 Route::resource('productos',ProductoController::class)->names('productos');
@@ -33,10 +33,9 @@ Route::resource('ventas',VentaController::class)->names('ventas');
 Route::resource('users',UserController::class)->only(['index','edit','update'])->names('users');
 Route::resource('roles',RoleController::class)->except('show')->names('roles');
 
-Route::get('ventas/detalleventas/{venta}/', [DetalleVentaController::class, 'create'])->name('detalleventas.create');
-Route::post('ventas/detalleventas/', [DetalleVentaController::class, 'store'])->name('detalleventas.store');
-Route::delete('ventas/detalleventas/{detalleventa}/', [DetalleVentaController::class, 'destroy'])->name('detalleventas.destroy');
 
-#Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-#    return view('dashboard');
-#})->name('dashboard');
+Route::get('ventas/detalle_ventas/create/{venta}/', [DetalleVentaController::class, 'create'])->name('detalle_ventas.create');
+#Route::resource('ventas/detalle_ventas',DetalleVentaController::class)->names('detalle_ventas');
+Route::post('ventas/detalle_ventas/', [DetalleVentaController::class, 'store'])->name('detalle_ventas.store');
+Route::delete('ventas/detalle_ventas/{detalle_ventas}/', [DetalleVentaController::class, 'destroy'])->name('detalle_ventas.destroy');
+

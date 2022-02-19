@@ -11,7 +11,7 @@
     <div class="card-header">
         <h3 class="card-title">Crear</h3>
         <div class="card-tools">
-            <a href="{{ route('ventas.create') }}" class="btn btn-tool" >
+            <a href="{{ route('ventas.index') }}" class="btn btn-tool" >
                 <i class="fas fa-sync-alt"></i>
             </a>
             <button type="button" class="btn btn-tool" data-card-widget="maximize">
@@ -47,9 +47,9 @@
                 </div>
             </div>
         </div>        
-        {!! Form::open(['route'=> 'detalleventas.store','autocomplete'=>'off']) !!}
+        {!! Form::open(['route'=> 'detalle_ventas.store','autocomplete'=>'off']) !!}
         <input type="hidden" value="{{ $venta->id }}" name="venta_id">
-            @include('admin.detalleventas.partials.form')
+            @include('admin.detalle_ventas.partials.form')
         {!! Form::close() !!}
         <div class="row">
             <div class="col-md-12">
@@ -73,7 +73,7 @@
                             @foreach ($detalleVentas as $detalleventa)
                                 <tr>
                                     <td>
-                                        <form action="{{ route('detalleventas.destroy', $detalleventa-) }}" method="POST" class="formulario-eliminar">
+                                        <form action="{{ route('detalle_ventas.destroy', $detalleventa) }}" method="POST" class="formulario-eliminar">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>
